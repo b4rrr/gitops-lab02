@@ -23,13 +23,9 @@ jobs:
           echo "Commit: $GITHUB_SHA"
           git status
 
-      - name: Validate required files
-        run: |
-          test -f README.md
-          test -d src
-          test -d tests
-          echo "Required files/directories exist."
+      -  name: Run automated validation
+         run: bash tests/validate.sh
 
       - name: Run basic validation
         run: |
-          echo "CI validation completed successfully." 
+          echo "CI validation completed successfully."
